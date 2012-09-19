@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'PT Sans';
+    src: url('../font/PTSans-webfont.eot');
+    src: url('../font/PTSans-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/PTSans-webfont.woff') format('woff'),
+         url('../font/PTSans-webfont.ttf') format('truetype'),
+         url('../font/PTSans-webfont.svg#PTSansRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
