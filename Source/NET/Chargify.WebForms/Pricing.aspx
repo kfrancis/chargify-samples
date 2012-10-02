@@ -58,7 +58,7 @@
                         <li class="pricing-footer">
                             <ul>
                                 <li class="dropdown">
-                                    <a href="#" class="btn" data-toggle="dropdown"><i class="icon-shopping-cart"></i>Sign Up<b class="caret"></b></a>
+                                    <a href="#" class="btn" data-toggle="dropdown"><i class="icon-shopping-cart"></i>Sign Up&nbsp;<b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                       <li><a runat="server" href="~/SubscribeLocal.aspx">Local</a></li>
                                       <li><a href="#">Hosted Page</a></li>

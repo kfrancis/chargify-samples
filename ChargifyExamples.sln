@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PHP", "PHP", "{12AA36DA-EA9C-44C9-A753-69C22A00B6EB}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Chargify.PHP", "Source\PHP\Chargify.PHP", "{54C13C10-4F06-4A77-BD79-E1AE0C061758}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Chargify.PHP", "Source\PHP\Chargify.PHP\", "{54C13C10-4F06-4A77-BD79-E1AE0C061758}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		Debug.AspNetCompiler.VirtualPath = "/Chargify.PHP"
@@ -34,6 +34,28 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Chargify.PHP", "Source\PHP\
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "6036"
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NodeJS", "NodeJS", "{6D8F4B94-4D4A-4AD6-B9F5-805A210CEA73}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Chargify.NodeJS", "Source\Node\Chargify.NodeJS\", "{19BC85FC-FDBD-4BE4-A226-85C980219402}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv2.0"
+		Debug.AspNetCompiler.VirtualPath = "/Chargify.NodeJS"
+		Debug.AspNetCompiler.PhysicalPath = "Source\Node\Chargify.NodeJS\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Chargify.NodeJS\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Chargify.NodeJS"
+		Release.AspNetCompiler.PhysicalPath = "Source\Node\Chargify.NodeJS\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Chargify.NodeJS\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "2692"
 	EndProjectSection
 EndProject
 Global
@@ -58,6 +80,10 @@ Global
 		{54C13C10-4F06-4A77-BD79-E1AE0C061758}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54C13C10-4F06-4A77-BD79-E1AE0C061758}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{54C13C10-4F06-4A77-BD79-E1AE0C061758}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{19BC85FC-FDBD-4BE4-A226-85C980219402}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19BC85FC-FDBD-4BE4-A226-85C980219402}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19BC85FC-FDBD-4BE4-A226-85C980219402}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{19BC85FC-FDBD-4BE4-A226-85C980219402}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,5 +93,6 @@ Global
 		{30EC3D72-2586-4DFA-A6C2-E3E6C376D6B0} = {F28FBCCE-A528-493C-BA5E-6FFBEA6254EA}
 		{0690953D-1735-4EEA-8BDA-0B1EF9544E69} = {F28FBCCE-A528-493C-BA5E-6FFBEA6254EA}
 		{54C13C10-4F06-4A77-BD79-E1AE0C061758} = {12AA36DA-EA9C-44C9-A753-69C22A00B6EB}
+		{19BC85FC-FDBD-4BE4-A226-85C980219402} = {6D8F4B94-4D4A-4AD6-B9F5-805A210CEA73}
 	EndGlobalSection
 EndGlobal
