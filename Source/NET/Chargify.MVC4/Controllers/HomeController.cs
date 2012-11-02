@@ -28,5 +28,10 @@ namespace Chargify.MVC4.Controllers
 
             return View();
         }
+
+        public ActionResult Pricing()
+        {
+            return View();
+        }
     }
 }
