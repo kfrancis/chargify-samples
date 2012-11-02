@@ -58,6 +58,13 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Chargify.NodeJS", "Source\N
 		VWDPort = "2692"
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C0EE1511-9384-4A2F-98A1-8BFF465C8FE9}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -92,6 +99,7 @@ Global
 		{27BB4192-3BEF-4666-817D-1F8B25781EF8} = {F28FBCCE-A528-493C-BA5E-6FFBEA6254EA}
 		{30EC3D72-2586-4DFA-A6C2-E3E6C376D6B0} = {F28FBCCE-A528-493C-BA5E-6FFBEA6254EA}
 		{0690953D-1735-4EEA-8BDA-0B1EF9544E69} = {F28FBCCE-A528-493C-BA5E-6FFBEA6254EA}
+		{C0EE1511-9384-4A2F-98A1-8BFF465C8FE9} = {F28FBCCE-A528-493C-BA5E-6FFBEA6254EA}
 		{54C13C10-4F06-4A77-BD79-E1AE0C061758} = {12AA36DA-EA9C-44C9-A753-69C22A00B6EB}
 		{19BC85FC-FDBD-4BE4-A226-85C980219402} = {6D8F4B94-4D4A-4AD6-B9F5-805A210CEA73}
 	EndGlobalSection
