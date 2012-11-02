@@ -12,6 +12,15 @@
         <div class="span9">
             &nbsp;
             <fieldset>
+                <legend>User</legend>
+                <div class="control-group">
+                    <label class="control-label" for="inputCardNumber">Username</label>
+                    <div class="controls">
+                        <input type="text" id="inputCardNumber" placeholder="Card Number">
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
                 <legend>Payment Information</legend>
                 <div class="control-group">
                     <label class="control-label" for="inputCardNumber">Card Number</label>
