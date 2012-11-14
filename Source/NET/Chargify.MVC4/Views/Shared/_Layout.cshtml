@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Chargify.MVC4.Helpers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -29,9 +30,10 @@
                         <a class="brand" href="#">Project name</a>
                         <div class="nav-collapse collapse">
                             <ul class="nav">
-                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                                <li>@Html.ActionLink("About", "About", "Home")</li>
-                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                                @Html.MenuItem("Home", "Index", "Home")
+                                @Html.MenuItem("Pricing", "Pricing", "Home")
+                                @Html.MenuItem("About", "About", "Home")
+                                @Html.MenuItem("Contact", "Contact", "Home")
                             </ul>
                             <div class="pull-right">
                                 @Html.Partial("_LoginPartial")

@@ -166,11 +166,14 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SignupController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\MenuExtensions.cs" />
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\SignupModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -240,8 +243,23 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tooltip.min.css" />
+    <Content Include="Content\themes\pricing\custom.css" />
+    <Content Include="Content\themes\pricing\font-awesome-ie7.css" />
+    <Content Include="Content\themes\pricing\font-awesome.css" />
+    <Content Include="Content\themes\pricing\font\fontawesome-webfont.svg" />
+    <Content Include="Content\themes\pricing\font\PTSans-webfont.svg" />
+    <Content Include="Content\themes\pricing\pricing-global.css" />
+    <Content Include="Content\themes\pricing\pricing-global.min.css" />
+    <Content Include="Content\themes\pricing\pt-sans.css" />
+    <Content Include="Content\themes\pricing\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Content\themes\pricing\font\fontawesome-webfont.eot" />
+    <Content Include="Content\themes\pricing\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\themes\pricing\font\fontawesome-webfont.woff" />
+    <Content Include="Content\themes\pricing\font\PTSans-webfont.eot" />
+    <Content Include="Content\themes\pricing\font\PTSans-webfont.ttf" />
+    <Content Include="Content\themes\pricing\font\PTSans-webfont.woff" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -298,6 +316,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Pricing.cshtml" />
+    <Content Include="Views\Signup\Local.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
