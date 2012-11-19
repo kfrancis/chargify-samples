@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ChargifyNET;
+using System.Configuration;
+using ChargifyNET.Configuration;
 
 namespace Chargify.MVC4.Controllers
 {
@@ -55,5 +58,40 @@ namespace Chargify.MVC4.Controllers
                 return View();
             }
         }
+
+        public ActionResult Completed()
+        {
+            return View();
+        }
+
+        public JsonResult ValidateCoupon(string couponCode)
+        {
+            
+            return Json(null);
+        }
+
+        #region Helpers
+        private ChargifyConnect Chargify
+        {
+            get
+            {
+                if (HttpContext.Cache["Chargify"] == null)
+                {
+                    ChargifyAccountRetrieverSection config = ConfigurationManager.GetSection("chargify") as ChargifyAccountRetrieverSection;
+                    ChargifyAccountElement accountInfo = config.GetDefaultOrFirst();
+                    ChargifyConnect chargify = new ChargifyConnect();
+                    chargify.apiKey = accountInfo.ApiKey;
+                    chargify.Password = accountInfo.ApiPassword;
+                    chargify.URL = accountInfo.Site;
+                    chargify.SharedKey = accountInfo.SharedKey;
+                    chargify.UseJSON = config.UseJSON;
+
+                    HttpContext.Cache.Add("Chargify", chargify, null, System.Web.Caching.Cache.NoAbsoluteExpiration, System.Web.Caching.Cache.NoSlidingExpiration, System.Web.Caching.CacheItemPriority.High, null);
+                }
+
+                return HttpContext.Cache["Chargify"] as ChargifyConnect;
+            }
+        }
+        #endregion
     }
 }
