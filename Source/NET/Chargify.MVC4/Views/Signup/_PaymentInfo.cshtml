@@ -1,0 +1,27 @@
+﻿@model Chargify.MVC4.Models.BillingPaymentModel
+
+<div class="control-group">
+    @Html.LabelFor(model => model.CardNumber, new { @class = "control-label" })
+    <div class="controls">
+        @Html.EditorFor(model => model.CardNumber)
+        @Html.ValidationMessageFor(model => model.CardNumber)
+    </div>
+</div>
+
+<div class="control-group">
+    <label class="control-label" for="ExpMonth">Expiry</label>
+    <div class="controls">
+        @Html.DropDownListFor(model => model.ExpirationMonth, (SelectList)ViewBag.ExpMonths, "Month", new { @class = "input-small" }) /
+                @Html.DropDownListFor(model => model.ExpirationYear, (SelectList)ViewBag.ExpYears, "Year", new { @class = "input-small" })
+        @Html.ValidationMessageFor(model => model.ExpirationMonth)
+        @Html.ValidationMessageFor(model => model.ExpirationYear)
+    </div>
+</div>
+
+<div class="control-group">
+    @Html.LabelFor(model => model.CVV, new { @class = "control-label" })
+    <div class="controls">
+        @Html.EditorFor(model => model.CVV)
+        @Html.ValidationMessageFor(model => model.CVV)
+    </div>
+</div>

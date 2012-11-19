@@ -63,3 +63,11 @@ body {
 .hero-unit {
     margin-top:20px;
 }
+
+.form-horizontal .control-group {
+    margin-bottom: 5px;
+}
+
+legend + .control-group {
+    margin-top: 0px;
+}
