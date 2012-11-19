@@ -135,4 +135,17 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //Update that validator
+            $.validator.setDefaults({
+                highlight: function (element) {
+                    $(element).closest(".control-group").addClass("error");
+                },
+                unhighlight: function (element) {
+                    $(element).closest(".control-group").removeClass("error");
+                }
+            });
+        });
+    </script>
 }
