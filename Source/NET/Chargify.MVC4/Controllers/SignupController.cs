@@ -16,7 +16,7 @@ namespace Chargify.MVC4.Controllers
         //
         // GET: /Signup/Local
 
-        public ActionResult Local()
+        public ActionResult Local(string productHandle)
         {
             LocalSignup model = new LocalSignup();
             model.UserPayment = new BillingPaymentModel();
@@ -45,7 +45,7 @@ namespace Chargify.MVC4.Controllers
         // POST: /Signup/Local
 
         [HttpPost]
-        public ActionResult Local(LocalSignup model)
+        public ActionResult Local(LocalSignup model, string productHandle)
         {
             try
             {
