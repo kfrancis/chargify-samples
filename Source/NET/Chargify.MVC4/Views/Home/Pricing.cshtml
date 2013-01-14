@@ -59,9 +59,9 @@
                         </li>
                         <li class="pricing-footer">
                             <div class="dropdown">
-                                <a href="@Url.Action("Local", "Signup", new { productHandle = "basic" }, null)" class="btn" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-shopping-cart"></i>Sign Up&nbsp;<b class="caret"></b></a>
+                                <a href="@Url.Action("Local", "Signup", new { id = "basic" }, null)" class="btn" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-shopping-cart"></i>Sign Up&nbsp;<b class="caret"></b></a>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-                                    <li>@Html.ActionLink("Local", "Local", "Signup", new { productHandle = "basic" }, null)</li>
+                                    <li>@Html.ActionLink("Local", "Local", "Signup", new { id = "basic" }, null)</li>
                                     <li><a href="#">Hosted Page</a></li>
                                     <li><a href="#">Chargify Direct</a></li>
                                 </ul>

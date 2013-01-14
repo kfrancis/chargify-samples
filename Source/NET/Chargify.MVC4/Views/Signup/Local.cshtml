@@ -7,6 +7,7 @@
 <div class="row">
     <div class="span3">
         <h2>Local Signup</h2>
+        <h3>@ViewBag.ProductName</h3>
         <p>On this page, the user is required to complete the form which allows the system to both create a user, and create a corresponding customer in the associated Chargify account.</p>
         <p>When the user clicks on the 'Place My Order' button, the system will create an ASP.NET membership user first, then create the Chargify customer second.</p>
         <p><i>You can simulate a non-working credit card by using '2' as the number instead of the default '1' ...</i></p>
@@ -21,7 +22,31 @@
             <fieldset>
                 <legend>Billing Information</legend>
 
-                @Html.Partial("_PaymentInfo", Model.UserPayment)
+                <div class="control-group">
+                    @Html.LabelFor(model => model.UserPayment.CardNumber, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.EditorFor(model => model.UserPayment.CardNumber)
+                        @Html.ValidationMessageFor(model => model.UserPayment.CardNumber)
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label" for="ExpMonth">Expiry</label>
+                    <div class="controls">
+                        @Html.DropDownListFor(model => model.UserPayment.ExpirationMonth, (SelectList)ViewBag.ExpMonths, "Month", new { @class = "input-small" }) /
+                                @Html.DropDownListFor(model => model.UserPayment.ExpirationYear, (SelectList)ViewBag.ExpYears, "Year", new { @class = "input-small" })
+                        @Html.ValidationMessageFor(model => model.UserPayment.ExpirationMonth)
+                        @Html.ValidationMessageFor(model => model.UserPayment.ExpirationYear)
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    @Html.LabelFor(model => model.UserPayment.CVV, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.EditorFor(model => model.UserPayment.CVV)
+                        @Html.ValidationMessageFor(model => model.UserPayment.CVV)
+                    </div>
+                </div>
 
                 <div class="control-group">
                     @Html.LabelFor(model => model.UserAddress.Address, new { @class = "control-label" })

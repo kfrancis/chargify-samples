@@ -1,25 +1,29 @@
-﻿using System.Globalization;
-using Chargify.MVC4.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using ChargifyNET;
 using System.Configuration;
+using System.Globalization;
+using System.Linq;
+using System.Web.Mvc;
+using System.Web.Routing;
+using System.Web.Security;
+using Chargify.MVC4.Filters;
+using Chargify.MVC4.Models;
+using ChargifyNET;
 using ChargifyNET.Configuration;
+using WebMatrix.WebData;
 
 namespace Chargify.MVC4.Controllers
 {
+    [InitializeSimpleMembership]
     public class SignupController : Controller
     {
         //
-        // GET: /Signup/Local
+        // GET: /Signup/Local/product-handle
 
-        public ActionResult Local(string productHandle)
+        public ActionResult Local(string id)
         {
-            LocalSignup model = new LocalSignup();
-            model.UserPayment = new BillingPaymentModel();
+            //LocalSignup model = new LocalSignup();
+            //model.UserPayment = new BillingPaymentModel();
 
             // Create the next 10 years for the credit card expiration
             List<SelectListItem> expYears = new List<SelectListItem>();
@@ -38,18 +42,82 @@ namespace Chargify.MVC4.Controllers
 
             ViewBag.ExpMonths = new SelectList(expMonths, "Value", "Text");
 
-            return View(model);
+            var product = Chargify.LoadProduct(id);
+            ViewBag.ProductName = product.Name ?? string.Empty;
+
+            return View();
         }
 
         //
-        // POST: /Signup/Local
+        // POST: /Signup/Local/product-handle
 
         [HttpPost]
-        public ActionResult Local(LocalSignup model, string productHandle)
+        [ValidateAntiForgeryToken]
+        public ActionResult Local(LocalSignup model, string id)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (ModelState.IsValid)
+                {
+                    // Attempt to register the user
+                    Guid userId = Guid.NewGuid();
+                    var newUser = WebSecurity.CreateUserAndAccount(model.User.UserName, model.User.Password, new { Email = model.UserContact.EmailAddress, UserId = userId });
+
+                    if (newUser != null)
+                    {
+                        if (!Roles.RoleExists("user"))
+                        {
+                            Roles.CreateRole("user");
+                        }
+                        Roles.AddUsersToRoles(new string[] { model.User.UserName }, new string[] { "User" });
+
+                        // Now that the user is created, attempt to create the corresponding subscription
+                        var customerInfo = new CustomerAttributes()
+                        {
+                            FirstName = model.UserContact.FirstName,
+                            LastName = model.UserContact.LastName,
+                            Email = model.UserContact.EmailAddress,
+                            SystemID = userId.ToString()
+                        };
+
+                        var paymentAttributes = new CreditCardAttributes()
+                        {
+                            FullNumber = model.UserPayment.CardNumber.Trim(),
+                            CVV = model.UserPayment.CVV,
+                            ExpirationMonth = model.UserPayment.ExpirationMonth,
+                            ExpirationYear = model.UserPayment.ExpirationYear,
+                            BillingAddress = model.UserAddress.Address,
+                            BillingCity = model.UserAddress.City,
+                            BillingZip = model.UserAddress.Zip,
+                            BillingState = model.UserAddress.State,
+                            BillingCountry = model.UserAddress.Country
+                        };
+                        
+
+                        try
+                        {
+                            var newSubscription = Chargify.CreateSubscription(id, customerInfo, paymentAttributes);
+
+                            WebSecurity.Login(model.User.UserName, model.User.Password, false);
+                            return RedirectToAction("Index", "Site");
+                        }
+                        catch (ChargifyException ex)
+                        {
+                            if (ex.ErrorMessages.Count > 0)
+                            {
+                                ModelState.AddModelError("", ex.ErrorMessages.FirstOrDefault().Message);
+                            }
+                            else
+                            {
+                                ModelState.AddModelError("", ex.ToString());
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //ModelState.AddModelError("", AccountValidation.ErrorCodeToString(createStatus));
+                    }
+                }
 
                 return RedirectToAction("Index");
             }
